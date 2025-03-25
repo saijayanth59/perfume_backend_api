@@ -23,36 +23,52 @@ class ProductRepository extends CrudRepository {
 
   async getUserRatingPos(product, username) {
     try {
-      return product.ratings.findIndex(rating => rating.username === username);
+      return product.ratings.findIndex(
+        (rating) => rating.username === username
+      );
     } catch (error) {
-      throw new Error(`Error while checking if user rated product: ${error.message}`);
+      throw new Error(
+        `Error while checking if user rated product: ${error.message}`
+      );
     }
   }
 
-  async addNewRating(product, username, rating, gmail) {
+  async addNewRating(product, username, rating, gmail, comment) {
     try {
-      product.ratings.push({ username: username, rating: rating, gmail: gmail });
-      product.avgRating = (product.avgRating * product.numRatings + rating) / (product.numRatings + 1);
+      product.ratings.push({
+        username: username,
+        rating: rating,
+        gmail: gmail,
+        comment: comment,
+      });
+      product.avgRating =
+        (product.avgRating * product.numRatings + rating) /
+        (product.numRatings + 1);
       product.numRatings += 1;
       await product.save();
       return product;
     } catch (error) {
-      throw new Error(`Error while adding new rating to product: ${error.message}`);
+      throw new Error(
+        `Error while adding new rating to product: ${error.message}`
+      );
     }
   }
 
   async updateRating(product, userRatingIndex, currRating) {
     try {
       const prevRating = product.ratings[userRatingIndex].rating;
-      product.avgRating = (product.avgRating * product.numRatings - prevRating + currRating) / product.numRatings;
+      product.avgRating =
+        (product.avgRating * product.numRatings - prevRating + currRating) /
+        product.numRatings;
       product.ratings[userRatingIndex].rating = currRating;
       await product.save();
       return product;
     } catch (error) {
-      throw new Error(`Error while updating rating for product: ${error.message}`);
+      throw new Error(
+        `Error while updating rating for product: ${error.message}`
+      );
     }
   }
-
 }
 
 module.exports = ProductRepository;

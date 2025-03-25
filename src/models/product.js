@@ -1,27 +1,34 @@
 const mongoose = require("mongoose");
 
-const RatingSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    trim: true,
+const RatingSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    gmail: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    comment: {
+      type: String,
+      trim: true,
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      required: true,
+    },
   },
-  gmail: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  rating: {
-    type: Number,
-    min: 1,
-    max: 5,
-    required: true,
-  }
-}, { _id: false });
+  { _id: false }
+);
 
 const sizeSchema = new mongoose.Schema({
   size: { type: String, required: true },
-  price: { type: Number, required: true }
+  price: { type: Number, required: true },
 });
 
 const productSchema = new mongoose.Schema({
@@ -49,4 +56,3 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
-

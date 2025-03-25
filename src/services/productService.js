@@ -34,7 +34,7 @@ class ProductService {
         { page, pageSize },
         "ratings",
         null,
-        "-ratings",
+        "-ratings"
       );
     } catch (error) {
       throw new Error(`Error while fetching all products: ${error.message}`);
@@ -63,7 +63,7 @@ class ProductService {
     }
   }
 
-  async addNewRating(productId, rating, username, gmail) {
+  async addNewRating(productId, rating, username, gmail, comment) {
     try {
       const product = await this.productRepository.findById(productId);
       if (!product) throw new Error("Product not found");
@@ -77,7 +77,8 @@ class ProductService {
           product,
           username,
           rating,
-          gmail
+          gmail,
+          comment
         );
       }
       return await this.productRepository.updateRating(product, pos, rating);

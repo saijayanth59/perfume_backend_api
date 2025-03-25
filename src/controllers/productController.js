@@ -1,4 +1,4 @@
-const  mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const ProductService = require("../services/productService");
 
 class ProductController {
@@ -42,7 +42,7 @@ class ProductController {
     try {
       const filters = req.query;
 
-      if (filters.category){
+      if (filters.category) {
         filters.category = new mongoose.Types.ObjectId(filters.category);
       }
       const products = await this.productService.getAllProducts(filters);
@@ -88,7 +88,8 @@ class ProductController {
         req.params.id,
         parseInt(req.body.rating),
         req.body.username,
-        req.body.gmail
+        req.body.gmail,
+        req.body.comment
       );
       res.status(200).json({
         message: "Rating added successfully",
@@ -98,7 +99,6 @@ class ProductController {
       res.status(500).json({ message: error.message });
     }
   };
-
 }
 
 module.exports = new ProductController();

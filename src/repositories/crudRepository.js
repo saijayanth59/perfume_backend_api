@@ -16,7 +16,7 @@ class CrudRepository {
   // Find a document by ID
   async findById(id) {
     try {
-      return await this.model.findById(id);
+      return await this.model.findById(id).populate("ratings");
     } catch (error) {
       throw new Error(`Error finding document by ID: ${error.message}`);
     }

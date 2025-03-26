@@ -37,7 +37,7 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
 ## Deployment
 
 The backend is deployed at:
-**[Live API Endpoint](deployment-url)**
+**[Live API Endpoint](https://perfume-backend-api.onrender.com/)**
 
 ## API Endpoints
 

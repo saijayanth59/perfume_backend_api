@@ -34,6 +34,11 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
    ```
    The server should now be running at `http://localhost:3001`.
 
+## Deployment
+
+The backend is deployed at:
+**[Live API Endpoint](deployment-url)**
+
 ## API Endpoints
 
 ### Get All Products
@@ -120,7 +125,7 @@ This project is open-source and available for modifications.
 
 ---
 
-**Author:** Your Name
-**Contact:** your.email@example.com
+**Author:** SAI JAYANTH
+**Contact:** keshavaradha990@gmail.com
 
 # perfume_backend_api

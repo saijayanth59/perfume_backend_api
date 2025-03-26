@@ -1,18 +1,22 @@
 # Perfume Shop Backend Documentation
 
 ## Overview
+
 This is the backend for the Perfume Shop, built using **Node.js, Express, and MongoDB**. It handles product listings, ratings, and other functionalities required for an engaging e-commerce experience.
 
 ## Setup Instructions
+
 ### Prerequisites
+
 - Node.js installed on your system
 - MongoDB database (either local or a cloud instance like MongoDB Atlas)
 
 ### Installation
+
 1. Clone the repository:
    ```sh
    git clone <repo-url>
-   cd perfume-shop-backend
+   cd perfume_backend_api
    ```
 2. Install dependencies:
    ```sh
@@ -26,15 +30,18 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
    ```
 4. Start the server:
    ```sh
-   npm start
+   node src/index.js
    ```
    The server should now be running at `http://localhost:3001`.
 
 ## API Endpoints
+
 ### Get All Products
+
 **Endpoint:** `GET /api/products`
 
 **Response:**
+
 ```json
 [
   {
@@ -68,9 +75,11 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
 ```
 
 ### Add a Rating to a Product
+
 **Endpoint:** `POST /api/products/:id/rating`
 
 **Request Body:**
+
 ```json
 {
   "username": "Jane Doe",
@@ -80,6 +89,7 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
 ```
 
 **Response:**
+
 ```json
 {
   "message": "Rating added successfully",
@@ -91,23 +101,25 @@ This is the backend for the Perfume Shop, built using **Node.js, Express, and Mo
 }
 ```
 
-
-
 ## Additional Features
+
 - **Secure API with JWT Authentication** (optional for future implementation)
 - **Pagination for product listings**
 - **Search and filter functionalities**
 - **Optimized database queries for better performance**
 
 ## Future Enhancements
+
 - Implement user authentication and authorization
 - Add a shopping cart feature
 - Integrate a payment gateway
 
 ## License
+
 This project is open-source and available for modifications.
 
 ---
+
 **Author:** Your Name
 **Contact:** your.email@example.com
 
